@@ -23,4 +23,18 @@ AND "US_sales_(m)" < 1
 AND US_Billboard_200_peak = '1'
 ORDER BY Title ASC
 
--- Need to finish exercise
+-- platinum-certified albums which had a peak chart position in the top 10
+SELECT Title, US_Billboard_200_peak, "US_sales_(m)"
+FROM Album
+WHERE "US_sales_(m)" >= 1
+AND "US_sales_(m)" < 2
+AND US_Billboard_200_peak BETWEEN '1' AND '10'
+ORDER BY Title ASC 
+
+-- multi-platinum-certified albums which charted outside the top 10
+SELECT Title, US_Billboard_200_peak, "US_sales_(m)"
+FROM Album
+WHERE "US_sales_(m)" >= 2
+AND "US_sales_(m)" < 10
+AND US_Billboard_200_peak > '10'
+ORDER BY Title ASC 
